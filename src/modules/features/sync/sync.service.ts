@@ -33,6 +33,7 @@ export class SyncService {
     return items.map(item => {
       const clean = { ...item };
       for (const campo of camposFecha) {
+        if (!(campo in clean)) continue;
         const v = clean[campo];
         if (v === '' || v === undefined) {
           clean[campo] = null;
